@@ -79,23 +79,23 @@ function result(sessions) {
   sessions.forEach(function (session, i) {
 
     // console.log(session)
-    var obj = res.find(obj => obj.session_id === session.session_id);
+    var sessionobj = res.find(obj => obj.session_id === session.session_id);
 
-    if (obj == undefined) {
+    if (sessionobj == undefined) {
       res.push({ session_id: session.session_id })
-      obj = res.find(obj => obj.session_id === session.session_id);
+      sessionobj = res.find(sessionobj => sessionobj.session_id === session.session_id);
 
-      obj['time'] = session.time
-      obj['classes'] = []
+      sessionobj['time'] = session.time
+      sessionobj['classes'] = []
 
     }
 
-    var classobj = obj.classes.find(classobj => classobj.class_id === session.class.class_id);
+    var classobj = sessionobj.classes.find(classobj => classobj.class_id === session.class.class_id);
 
     if (classobj === undefined) {
       let temp = []
-      obj.classes.push({ class_id: session.class.class_id, name :  session.class.name, students: temp })
-      classobj = obj.classes.find(classobj => classobj.class_id === session.class.class_id);
+      sessionobj.classes.push({ class_id: session.class.class_id, name :  session.class.name, students: temp })
+      classobj = sessionobj.classes.find(classobj => classobj.class_id === session.class.class_id);
 
       classobj.students.push({ student_id: session.student.student_id, name: session.student.name })
 
