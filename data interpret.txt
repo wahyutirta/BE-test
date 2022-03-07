@@ -1,0 +1,8 @@
+London 2013 0.224
+liverpool 2013 0.238
+manchester 2008 0.0665
+liverpool 2012 0.218
+
+percent of applicants employed over 6 years
+
+24%
